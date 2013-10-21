@@ -1,0 +1,87 @@
+COMS W4701 Artificial Intelligence
+Fall 2013
+Assignment 2: Sokoban Search Algorithm 
+Due: 11:59:59 EDT October 22nd 2013 AD
+
+The intent of this assignment is to help demonstrate to you the relative efficiency of the various search algorithms we've been discussing and the benefit of leveraging domain specific knowledge when solving problems. For this project, you will be implementing several search algorithms in a way that will allow you to evaluate their performance.
+
+Before getting in to the search specifics, we must first introduce the problem you will be solving: Sokoban!
+
+Sokoban is a Japanese word meaning "warehouse keeper." In this type of puzzle, the player finds himself or herself in a warehouse full of boxes. The objective of this type of puzle is to move each box to a designed storage location. Unlike n-puzzles, which have been studied since the 19th century, Sokoban is a relatively new type of puzzle. It was created by  Hiroyuki Imabayashi in 1981 and first released as a game for Japanese home computers in 1982.
+
+You can see an example of an example of a Sokoban puzzle being solved on Wikipedia: http://en.wikipedia.org/wiki/Sokoban
+More information on the game can be found on the Sokoban wiki: http://www.sokobano.de/wiki/index.php?title=Main_Page
+Many examples of Sokoban puzzles are provided on this web site: http://sneezingtiger.com/sokoban/levels.html
+And here is a Java implementation of Sokoban which you can experiment with: http://sourceforge.net/projects/jsokoapplet/
+But don't have too much fun that you forget to complete your assignment!
+
+In general, Sokoban is a challenging problem because it has a high branching factor and many situations called "deadlocks" in which a move has caused the puzzle to enter into a state from which the goal is unobtainable. We'll be working with relatively simple puzzle instances which your search algorithms should be capable of discovering solutions for.
+
+Your task for this assignment is as follows:
+
+-Implement a problem solving agent program which takes a text file containing a Sokoban puzzle as input.
+
+The first line of the text file will specify how many lines long the puzzle is, the remainder of the file will contain the puzzle itself, expressed using the following ASCII characters:
+#	(hash)  	Wall 
+.	(period)	Empty goal 
+@	(at)    	Player on floor 
++	(plus)		Player on goal 
+$	(dollar)	Box on floor 
+*	(asterisk)	Box on goal 
+
+The following is an example of a valid Sokoban puzzle input file:
+-----------------------------------------------------------
+7
+####
+# .#
+#  ###
+#*@  #
+#  $ #
+#    #
+######
+-----------------------------------------------------------
+
+-After reading in a text file, your agent should attempt to find a solution to the puzzle by searching. You must offer a mechanism by which users can choose which search algorithm to apply; how you do this is up to you but must be fully documented. I recommend the use of command line arguments or a simple text prompt.
+
+The types of search algorithms which you must implement are as follows:
+	1) Breadth first search
+	2) Depth first search
+	3) Uniform cost search
+	4) Greedy best first search
+	5) A* search
+
+-For the greedy and A* search algorithm, you must implement two heuristic functions. These should also be made available as options to the user. There are several research papers and web sites which discuss possible heuristics; you are welcome to make use of these *AS LONG AS THEY ARE PROPERLY CITED*.
+
+For the sake of simplicity, assume a cost of 1 for each move, with the following exception: for UCS, assume that a move involving a box push costs 2, all other moves still cost 1.
+	
+-Your program should output a solution in the form of a comma separated list of directions:
+	u	up
+	d	down
+	l	left
+	r	right
+
+For example, a solution to the puzzle shown above is: r, r, d, l, d, l, u, u, u
+
+-Your program should also provide users with an option to output statistics on the search process, namely:
+	 a) the number of nodes generated 
+	 b) the number of nodes containing states that were generated previously
+	 c) the number of nodes on the fringe when termination occurs
+	 d) the number of nodes on the explored list (if there is one) when termination occurs
+	 e) the actual run time of the algorithm, expressed in actual time units
+	 
+-In addition to your code and appropriate documentation, you should submit the output of your five search algorithms, including both the solution and search statistics, when run on *three* different test puzzles.
+
+This means your output should include:
+ 1) BFS solution and statistics for 3 Sokoban puzzles
+ 2) DFS solution and statistics for 3 Sokoban puzzles
+ 3) UCS solution and statistics for 3 Sokoban puzzles
+ 4) Greedy best first search solution and statistics for 3 Sokoban puzzles
+ 5) A* search solution and statistics for 3 Sokoban puzzles
+ 
+ 
+EXTRA CREDIT (10 points):
+As mentioned above, a challenging aspect of designing a Sokoban puzzle solving agent are "deadlock" states in which there is no possible path to a solution. 
+ 
+For bonus points, implement a function which detects deadlock states. Tie this in to your search algorithms so deadlock states are not explored. Your documentation must provide a thorough explanation of the criteria you used to find deadlocks. 
+ 
+Run each algorithm on one example with the deadlock algorithm and explain the performance differences with the new addition.
