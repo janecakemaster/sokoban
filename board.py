@@ -8,7 +8,7 @@ from space import Space
 class Board:
 
     def __init__(self, filename):
-        self.rows = []
+        walls, boxes, goals, spaces, rows = ([] for i in range(5))
         with open(filename, 'r') as f:
             read_data = f.read()
         lines = read_data.split('\n')
@@ -20,27 +20,43 @@ class Board:
             row = []
             for char in line:
                 if char == '#':
-                    row.append(Wall(x, y))
+                    w = Wall(x, y)
+                    row.append(w)
+                    walls.append(w)
                 elif char == '.':
-                    row.append(Goal(x, y))
+                    g = Goal(x, y)
+                    row.append(g)
+                    goals.append(g)
                 elif char == '@':
-                    row.append(Player(x, y, True))
+                    self.p = Player(x, y, True)
+                    row.append(self.p)
                     player_found = True
                 elif char == '+':
-                    row.append(Player(x, y, False))
+                    self.p = Player(x, y, False)
+                    row.append(self.p)
                     player_found = True
                 elif char == '$':
-                    row.append(Box(x, y, False))
+                    b = Box(x, y, False)
+                    row.append(b)
+                    boxes.append(b)
                 elif char == '*':
-                    row.append(Box(x, y, True))
+                    b = Box(x, y, True)
+                    row.append(b)
+                    boxes.append(b)
                 else:
-                    row.append(Space(x, y))
+                    s = Space(x, y)
+                    row.append(s)
+                    spaces.append(s)
                 x += 1
-            self.rows.append(row)
+            rows.append(row)
             y += 1
         if player_found == False:
             self.rows = []
             print "no player found on this board"
+        self.rows = rows
+        self.walls = walls
+        self.boxes = boxes
+        self.goals = goals
 
     def __str__(self):
         text = ''
@@ -49,3 +65,9 @@ class Board:
                 text += item.char
             text += '\n'
         return text
+
+    def moves_available(self):
+        return
+
+    def moves(self):
+        return

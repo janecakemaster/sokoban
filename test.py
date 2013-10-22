@@ -1,3 +1,4 @@
+import sys
 from glob import glob
 import sokoban
 
@@ -6,6 +7,10 @@ import sokoban
 #     print p
 #     sokoban.play(p)
 
-sokoban.play('puzzles/easy1.txt')
-sokoban.play('puzzles/easy3.txt')
-sokoban.play('puzzles/easy4.txt')
+# gets file from args and plays that puzzle
+if len(sys.argv) == 2:
+    sokoban.play(sys.argv[1])
+else:
+    sokoban.play('puzzles/easy1.txt')
+    sokoban.play('puzzles/easy3.txt')
+    sokoban.play('puzzles/easy4.txt')

@@ -2,9 +2,12 @@ from board import Board
 
 
 def play(filename):
-    b = Board(filename)
-    print b
-
+    ''' checks for valid file and plays the puzzle '''
+    try:
+        b = Board(filename)
+        print b
+    except:
+        print "file doesn't exist, try again"
 
 def bfs(problem):
     return
