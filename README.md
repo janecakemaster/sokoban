@@ -1,7 +1,7 @@
 sokoban
 =======
 
-Sokoban game in Python
+Sokoban game in Python for Artificial Intelligence class. See `assignment.txt` for specs.
 
 ##Testing
 * To run test suite and see output in `output.txt`:
