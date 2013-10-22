@@ -1,5 +1,10 @@
-to run test suite:
-`python test.py`
+sokoban
+=======
 
-to run on specified puzzle .txt file:
+Sokoban game in Python
+
+##Testing
+- To run test suite:
+`python test.py`
+- To run on specified puzzle .txt file:
 `python sokoban.py <puzzle filename>`
