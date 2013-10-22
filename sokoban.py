@@ -3,6 +3,8 @@ from board import Board
 
 def play(filename):
     b = Board(filename)
+    print b
+
 
 def bfs(problem):
     return
@@ -54,5 +56,3 @@ def gbfs(problem):
 
 def astar(problem):
     return
-
-play('easy.txt')

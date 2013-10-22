@@ -15,6 +15,7 @@ class Board:
         lines.pop(0)
         x = 0
         y = 0
+        player_found = False
         for line in lines:
             row = []
             for char in line:
@@ -24,8 +25,10 @@ class Board:
                     row.append(Goal(x, y))
                 elif char == '@':
                     row.append(Player(x, y, True))
+                    player_found = True
                 elif char == '+':
                     row.append(Player(x, y, False))
+                    player_found = True
                 elif char == '$':
                     row.append(Box(x, y, False))
                 elif char == '*':
@@ -35,6 +38,9 @@ class Board:
                 x += 1
             self.rows.append(row)
             y += 1
+        if player_found == False:
+            self.rows = []
+            print "no player found on this board"
 
     def __str__(self):
         text = ''
