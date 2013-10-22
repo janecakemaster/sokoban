@@ -1,5 +1,5 @@
 import sys
-from glob import glob
+# from glob import glob
 import sokoban
 
 # puzzles = glob('puzzles/*.txt')
