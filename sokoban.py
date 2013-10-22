@@ -1,6 +1,9 @@
-import os
-import cmd
 
+from board import Board
+
+def play(filename):
+    b = Board(filename)
+    print b
 
 def bfs(problem):
     return
@@ -38,8 +41,8 @@ def dfs(problem):
 # else
 # cutoff occurred?<-false
 # for each action in problem.ACTIONS(node.STATE) do
-# child <-CHILD-NODE(problem,node,action) result<-RECURSIVE-DLS(child,problem,limit −1) if result = cutoff then cutoff occurred ? <- true
-# else if result ̸= failure then return result
+# child <-CHILD-NODE(problem,node,action) result<-RECURSIVE-DLS(child,problem,limit -1) if result = cutoff then cutoff occurred ? <- true
+# else if result != failure then return result
 # if cutoff occurred? then return cutoff else return failure
 
 def gbfs(problem):
@@ -47,3 +50,5 @@ def gbfs(problem):
 
 def astar(problem):
     return
+
+play('easy.txt')
