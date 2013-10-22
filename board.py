@@ -4,7 +4,9 @@ from goal import Goal
 from player import Player
 from space import Space
 
+
 class Board:
+
     def __init__(self, filename):
         self.rows = []
         with open(filename, 'r') as f:
@@ -33,13 +35,11 @@ class Board:
                 x += 1
             self.rows.append(row)
             y += 1
+
     def __str__(self):
-        # print self.rows[0]
         text = ''
         for row in self.rows:
-            # print row
             for item in row:
                 text += item.char
-                # print item.char
             text += '\n'
         return text

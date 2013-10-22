@@ -1,9 +1,8 @@
-
 from board import Board
+
 
 def play(filename):
     b = Board(filename)
-    print b
 
 def bfs(problem):
     return
@@ -16,7 +15,9 @@ def bfs(problem):
 # for each action in problem.ACTIONS(node.STATE) do
 # child <-CHILD-NODE(problem,node,action)
 # if child.STATE is not in explored or frontier then
-# if problem.GOAL-TEST(child.STATE) then return SOLUTION(child) frontier <-INSERT(child,frontier)
+# if problem.GOAL-TEST(child.STATE) then return SOLUTION(child) frontier
+# <-INSERT(child,frontier)
+
 
 def ucs(problem):
     return
@@ -33,6 +34,7 @@ def ucs(problem):
 # else if child.STATE is in frontier with higher PATH-COST then
 # replace that frontier node with child
 
+
 def dfs(problem):
     return
 # function DEPTH-LIMITED-SEARCH(problem,limit) returns a solution, or failure/cutoff return RECURSIVE-DLS(MAKE-NODE(problem.INITIAL-STATE),problem,limit)
@@ -45,8 +47,10 @@ def dfs(problem):
 # else if result != failure then return result
 # if cutoff occurred? then return cutoff else return failure
 
+
 def gbfs(problem):
     return
+
 
 def astar(problem):
     return

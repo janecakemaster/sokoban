@@ -1,8 +1,11 @@
 # $   (dollar)    Box on floor
 # *   (asterisk)  Box on goal
 
+
 class Box:
+
     ''' box with coordinates and on goal/on floor state '''
+
     def __init__(self, x, y, b):
         self.x = x
         self.y = y

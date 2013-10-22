@@ -1,8 +1,11 @@
 # @   (at)        Player on floor
 # +   (plus)      Player on goal
 
+
 class Player:
+
     ''' player with coordinates and on floor/on goal state '''
+
     def __init__(self, x, y, b):
         self.x = x
         self.y = y
