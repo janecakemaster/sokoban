@@ -6,8 +6,27 @@ def play(filename):
     # try:
     b = Board(filename)
     print b
+    print "Player position: (" + str(b.p.x) + ", " + str(b.p.y) + ")"
+    # prompt = "Enter a nubmer: 1) Breadth first search \n2) Depth first search \n3) Uniform cost search \n4) Greedy best first search \n5) A* search"
+    # s = int(raw_input(prompt))
+    # if s == 1:
+    #     bfs(b)
+    # elif s == 2:
+    #     dfs(b)
+    # elif s == 3:
+    #     ucs(b)
+    # elif s == 4:
+    #     gbfs(b)
+    # elif s == 5:
+    #     astar(b)
+    # else:
+    #     print "bad prompt"
+
+    # bfs(b)
+
     # except:
     #     print "file doesn't exist, try again"
+
 
 def bfs(problem):
     return

@@ -31,11 +31,15 @@ class Board:
                         self.goals.append(g)
                     elif char == '@':
                         self.p = Player(x, y, True)
-                        row.append(self.p)
+                        s = Space(x, y)
+                        row.append(s)
+                        self.spaces.append(s)
                         player_found = True
                     elif char == '+':
                         self.p = Player(x, y, False)
-                        row.append(self.p)
+                        g = Goal(x, y)
+                        row.append(g)
+                        self.goals.append(g)
                         player_found = True
                     elif char == '$':
                         b = Box(x, y, False)
@@ -45,6 +49,8 @@ class Board:
                         b = Box(x, y, True)
                         row.append(b)
                         self.boxes.append(b)
+                        g = Goal(x, y)
+                        self.goals.append(g)
                     else:
                         s = Space(x, y)
                         row.append(s)
@@ -54,15 +60,78 @@ class Board:
                     self.width = len(row)
                 self.rows.append(row)
                 y += 1
+                x = 0
             if player_found == False:
                 self.rows = []
                 print "no player found on this board"
+            # self.move_player('u')
+
+            # for row in self.rows:
+            #     for item in row:
+            #         print item.char
+
+            # print self.rows
+
+            # xp = 0
+            # yp = 0
+            # while yp < self.height:
+            #     while xp < self.width:
+            #         print self.at(xp, yp).y
+            #         xp += 1
+            #     xp = 0
+            #     print '\n'
+            #     yp += 1
 
     def at(self, x, y):
-        return self.rows[x][y]
+        return self.rows[y][x]
 
-    def moves_available(self):
+    def can_move(self, obj, direction):
+        xold = self.p.x
+        yold = self.p.y
+        if direction == 'u':
+            ynew = yold - 1
+            obj.y = ynew
+            to_move = self.at(xold, ynew)
+            kind = type(to_move)
+            # recursive call to find out if adjacent obj can be moved
 
+
+    def move_player(self, direction):
+        # switch position of player object with object in next position
+        xold = self.p.x
+        yold = self.p.y
+        if direction == 'u':
+            ynew = yold - 1
+            self.p.y = ynew
+            to_move = self.at(xold, ynew)
+            kind = type(to_move)
+            if kind == Box:
+                # check if box can move
+                move_box(to_move)
+            if kind == Goal:
+                self.p.floor = False
+            if kind == Space:
+                self.rows[ynew][xold] = self.p
+                self.rows[yold][xold] = Space(xold, yold)
+
+        #     self.p.y = ynew
+        #     self.rows[ynew][xold] = self.p
+        # print self
+
+    def move_box(self, box, direction):
+        xold = box.x
+        yold = box.y
+        if direction == 'u':
+            ynew = yold - 1
+
+            to_move = self.at(xold, ynew)
+            kind = type(to_move)
+            if kind ==
+        return
+
+    def moves_available(self, player):
+        x = player.x
+        y = player.y
         return
 
     def moves(self):
@@ -75,4 +144,3 @@ class Board:
                 text += item.char
             text += '\n'
         return text
-

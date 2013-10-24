@@ -12,5 +12,5 @@ if len(sys.argv) == 2:
     sokoban.play(sys.argv[1])
 else:
     sokoban.play('puzzles/easy1.txt')
-    sokoban.play('puzzles/easy3.txt')
+    # sokoban.play('puzzles/easy3.txt')
     sokoban.play('puzzles/easy4.txt')
