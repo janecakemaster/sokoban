@@ -9,3 +9,6 @@ class Goal:
         self.x = x
         self.y = y
         self.char = '.'
+    def update(self, x, y):
+        self.x = x
+        self.y = y

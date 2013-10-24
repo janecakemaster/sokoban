@@ -93,6 +93,14 @@ class Board:
             obj.y = ynew
             to_move = self.at(xold, ynew)
             kind = type(to_move)
+            if kind == Wall:
+                return False
+            if kind == Goal:
+                return True
+            if kind == Space:
+                return True
+            if kind == Box:
+                return can_move(to_move, direction)
             # recursive call to find out if adjacent obj can be moved
 
 
