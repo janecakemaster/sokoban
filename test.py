@@ -4,6 +4,7 @@ from sokoban import Sokoban
 
 def runSearch(s, filename):
     b = s.new_board(filename)
+    # TODO: uncomment for prod
     # print "Which algorithm?"
     # print "1) Breadth first search"
     # print "2) Depth first search"
@@ -13,7 +14,7 @@ def runSearch(s, filename):
     # print "6) all"
     # p = raw_input("Type a number and press enter: ")
     # option = int(p)
-    option = 2
+    option = 3
     print '\nSolving ' + filename + '...'
     s.doSearches(b, option)
 

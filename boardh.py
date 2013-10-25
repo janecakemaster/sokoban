@@ -8,7 +8,7 @@ D = Direction(Spot(0, 1), 'd')
 directions = [U, D, L, R]
 
 
-class Board:
+class BoardH:
 
     def __init__(self, dir_list):
         self.dir_list = dir_list  # list of directions for solution
@@ -17,7 +17,7 @@ class Board:
         self.boxes = set()
         self.fboxes = frozenset()  # since set() is not hashable
         self.player = None
-        self.cost = 1
+        self.ucsCost = 1
 
     def __eq__(self, other):
         if self.boxes.issubset(other.boxes) and self.player == other.player:
@@ -29,16 +29,7 @@ class Board:
         return hash((self.fboxes, self.player))
 
     def __gt__(self, other):
-        if self.cost > other.cost:
-            return True
-        else:
-            return False
-
-    def __lt__(self, other):
-        if self.cost < other.cost:
-            return True
-        else:
-            return False
+        if
 
     def add_wall(self, x, y):
         self.walls.add(Spot(x, y))

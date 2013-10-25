@@ -33,6 +33,11 @@ def search(board):
             return
         else:
             currNode = frontier.pop()
+            # if currNode.is_win():
+            #     end = time()
+            #     print_results(currNode, nodes_generated, nodes_repeated, len(
+            #                   frontier), len(explored), end - start)
+            #     return currNode
             moves = currNode.moves_available()
             currNode.fboxes = frozenset(currNode.boxes)
             explored.add(currNode)

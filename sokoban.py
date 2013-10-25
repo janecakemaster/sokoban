@@ -1,6 +1,7 @@
 from board import Board
 import bfs
-import dfs
+import ucs
+
 
 class Sokoban:
 
