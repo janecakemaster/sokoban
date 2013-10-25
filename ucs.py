@@ -4,7 +4,7 @@ import heapq
 
 
 def print_results(board, gen, rep, fri, expl, dur):
-    print "3. Uniform-cost search"
+    print "\n3. Uniform-cost search"
     print "Solution: " + board.getDirections()
     print "Nodes generated: " + str(gen)
     print "Nodes repeated: " + str(rep)
@@ -68,5 +68,5 @@ def search(board):
                             i = count + 1
                         else:
                             heapq.heappush(frontier, a)
-                            i += 1
+                            i += 1  # end while
                     nodes_repeated += 1

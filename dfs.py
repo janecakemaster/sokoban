@@ -1,10 +1,10 @@
 from time import time
 from copy import deepcopy
-from myqueue import MyQueue
+import heapq
 
 
 def print_results(board, gen, rep, fri, expl, dur):
-    print "2. Depth-first search"
+    print "\n2. Depth-first search"
     print "Solution: " + board.getDirections()
     print "Nodes generated: " + str(gen)
     print "Nodes repeated: " + str(rep)
@@ -13,7 +13,7 @@ def print_results(board, gen, rep, fri, expl, dur):
     print 'Duration: ' + str(dur) + ' secs'
 
 
-def search(board):
+def dfs(board):
     start = time()
     nodes_generated = 0
     nodes_repeated = 0
@@ -23,16 +23,24 @@ def search(board):
         return board
     node = deepcopy(board)
     nodes_generated += 1
-    frontier = MyQueue()
-    frontier.push(node)
+    frontier = []
+    frontierSet = set()
+    heapq.heappush(frontier, node)
+    frontierSet.add(node)
     explored = set()
     keepLooking = True
     while keepLooking:
-        if frontier.isEmpty():
+        if len(frontier) == 0:
             print "Solution not found"
             return
         else:
-            currNode = frontier.pop()
+            currNode = heapq.heappop(frontier)
+            frontierSet.remove(currNode)
+            if currNode.is_win():
+                end = time()
+                print_results(currNode, nodes_generated, nodes_repeated, len(
+                              frontier), len(explored), end - start)
+                return currNode
             moves = currNode.moves_available()
             currNode.fboxes = frozenset(currNode.boxes)
             explored.add(currNode)
@@ -40,12 +48,25 @@ def search(board):
                 child = deepcopy(currNode)
                 nodes_generated += 1
                 child.move(m)
+                if child.is_win():
+                    end = time()
+                    print_results(child, nodes_generated, nodes_repeated, len(
+                                  frontier), len(explored), end - start)
+                    return child
                 if child not in explored:
-                    if child.is_win():
-                        end = time()
-                        print_results(child, nodes_generated, nodes_repeated, len(
-                                      frontier), len(explored), end - start)
-                        return child
-                    frontier.push(child)
-                else:
+                    if child not in frontierSet:
+                        heapq.heappush(frontier, child)
+                        frontierSet.add(child)
+                elif child in frontierSet:
+                    count = frontier.count(child)
+                    i = 0
+                    while i <= count:
+                        a = frontier.pop((frontier.index(child)))
+                        if child.cost < a.cost:
+                            heapq.heappush(frontier, child)
+                            child = a
+                            i = count + 1
+                        else:
+                            heapq.heappush(frontier, a)
+                            i += 1
                     nodes_repeated += 1

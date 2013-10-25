@@ -1,0 +1,54 @@
+
+Solving puzzles/easy1.txt...
+
+1. Breadth-first search
+Solution: r, r, d, l, l, l, l, l, l, l, u, r, r, r, r, 
+Nodes generated: 49
+Nodes repeated: 15
+Fringe nodes: 18
+Explored nodes: 15
+Duration: 0.0692660808563 secs
+
+3. Uniform-cost search
+Solution: l, l, u, l, l, d, r, r, r, 
+Nodes generated: 792
+Nodes repeated: 1
+Fringe nodes: 20
+Explored nodes: 243
+Duration: 1.09404397011 secs
+
+Solving puzzles/easy3.txt...
+
+1. Breadth-first search
+Solution: r, r, d, l, l, l, l, u, r, r, l, l, d, r, r, r, r, u, l, r, d, l, l, u, u, u, d, d, r, r, d, l, l, l, l, u, u, u, u, r, r, l, l, d, d, d, r, r, r, r, u, u, u, l, l, 
+Nodes generated: 897
+Nodes repeated: 508
+Fringe nodes: 27
+Explored nodes: 293
+Duration: 1.68008112907 secs
+
+3. Uniform-cost search
+Solution: u, u, u, l, l, d, d, d, r, r, d, r, r, u, l, d, l, u, u, u, d, d, r, r, u, u, u, l, l, 
+Nodes generated: 631
+Nodes repeated: 0
+Fringe nodes: 11
+Explored nodes: 248
+Duration: 0.957544088364 secs
+
+Solving puzzles/mod1.txt...
+
+1. Breadth-first search
+Solution: d, l, u, r, r, r, d, l, r, u, l, l, l, d, d, r, u, l, u, r, u, u, l, d, r, d, d, r, r, u, l, r, d, l, l, u, u, 
+Nodes generated: 1536
+Nodes repeated: 925
+Fringe nodes: 20
+Explored nodes: 439
+Duration: 2.18580007553 secs
+
+3. Uniform-cost search
+Solution: u, l, d, r, d, d, l, u, u, r, r, r, d, l, u, l, l, d, d, r, u, l, u, r, u, u, l, d, r, d, d, r, r, u, l, d, l, u, u, 
+Nodes generated: 928
+Nodes repeated: 2
+Fringe nodes: 45
+Explored nodes: 338
+Duration: 1.1346950531 secs

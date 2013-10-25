@@ -2,9 +2,14 @@ from time import time
 from copy import deepcopy
 from myqueue import MyQueue
 
+'''
+Executes breadth-first search
+uses MyQueue to keep track of frontier
+'''
+
 
 def print_results(board, gen, rep, fri, expl, dur):
-    print "1. Breadth-first search"
+    print "\n1. Breadth-first search"
     print "Solution: " + board.getDirections()
     print "Nodes generated: " + str(gen)
     print "Nodes repeated: " + str(rep)
@@ -33,11 +38,6 @@ def search(board):
             return
         else:
             currNode = frontier.pop()
-            # if currNode.is_win():
-            #     end = time()
-            #     print_results(currNode, nodes_generated, nodes_repeated, len(
-            #                   frontier), len(explored), end - start)
-            #     return currNode
             moves = currNode.moves_available()
             currNode.fboxes = frozenset(currNode.boxes)
             explored.add(currNode)
