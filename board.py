@@ -9,13 +9,12 @@ directions = [U, D, L, R]
 
 
 class Board:
-
     def __init__(self, dir_list):
-        self.dir_list = dir_list
+        self.dir_list = dir_list # list of directions for solution
         self.walls = set()
         self.goals = set()
         self.boxes = set()
-        self.fboxes = frozenset()
+        self.fboxes = frozenset() # since set() is not hashable
         self.player = None
 
     def __eq__(self, other):

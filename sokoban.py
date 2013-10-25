@@ -1,6 +1,6 @@
 from board import Board
 import bfs
-
+import dfs
 
 class Sokoban:
 
@@ -38,5 +38,20 @@ class Sokoban:
                 print "No player on board"
                 return None
 
-    def doSearches(self, board):
-        bfs.search(board)
+    def doSearches(self, board, option):
+        if option == 1:
+            bfs.search(board)
+        if option == 2:
+            dfs.search(board)
+        if option == 3:
+            ucs.search(board)
+        if option == 4:
+            gbfs.search(board)
+        if option == 5:
+            ass.search(board)
+        if option == 6:
+            bfs.search(board)
+            dfs.search(board)
+            ucs.search(board)
+            gbfs.search(board)
+            ass.search(board)

@@ -1,12 +1,10 @@
-
-class Fifo:
+class MyQueue:
 
     def __init__(self):
         self.q = []
 
     def push(self, x):
         self.q.insert(0, x)
-        # return self.q
 
     def pop(self):
         return self.q.pop(0)

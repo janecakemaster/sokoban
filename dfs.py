@@ -1,16 +1,16 @@
 from time import time
 from copy import deepcopy
-from fifo import Fifo
+from myqueue import MyQueue
 
 
 def print_results(board, gen, rep, fri, expl, dur):
-        print "Depth-first search"
-        print "Solution: " + board.getDirections()
-        print "Nodes generated: " + str(gen)
-        print "Nodes repeated: " + str(rep)
-        print "Fringe nodes: " + str(fri)
-        print "Explored nodes: " + str(expl)
-        print 'Duration: ' + str(dur) + ' secs'
+    print "2. Depth-first search"
+    print "Solution: " + board.getDirections()
+    print "Nodes generated: " + str(gen)
+    print "Nodes repeated: " + str(rep)
+    print "Fringe nodes: " + str(fri)
+    print "Explored nodes: " + str(expl)
+    print 'Duration: ' + str(dur) + ' secs'
 
 
 def search(board):
@@ -23,11 +23,11 @@ def search(board):
         return board
     node = deepcopy(board)
     nodes_generated += 1
-    frontier = Fifo()
+    frontier = MyQueue()
     frontier.push(node)
     explored = set()
     keepLooking = True
-    while keepLooking == True:
+    while keepLooking:
         if frontier.isEmpty():
             print "Solution not found"
             return

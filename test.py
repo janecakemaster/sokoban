@@ -4,8 +4,18 @@ from sokoban import Sokoban
 
 def runSearch(s, filename):
     b = s.new_board(filename)
+    # print "Which algorithm?"
+    # print "1) Breadth first search"
+    # print "2) Depth first search"
+    # print "3) Uniform cost search"
+    # print "4) Greedy best first search"
+    # print "5) A* search"
+    # print "6) all"
+    # p = raw_input("Type a number and press enter: ")
+    # option = int(p)
+    option = 2
     print '\nSolving ' + filename + '...'
-    s.doSearches(b)
+    s.doSearches(b, option)
 
 sok = Sokoban()
 
