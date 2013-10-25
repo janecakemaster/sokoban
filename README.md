@@ -1,10 +1,16 @@
 Sokoban
 =======
-**Assignment 2**
-**Jane Kim**
-**jk3316**
+**Assignment 2**  
+**Jane Kim**  
+**jk3316**  
 
 Sokoban game in Python for Artificial Intelligence class. See `assignment.txt` for specs.
+
+#####Specs
+OS: Mac OSX  
+Language: Python 2.7.1
+Editor: Sublime Text 3  
+
 
 ##Testing
 * To run test suite and see output in `results.txt`:
