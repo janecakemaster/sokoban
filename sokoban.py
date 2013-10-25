@@ -1,4 +1,9 @@
 from board import Board
+import bfs
+import ucs
+import dfs
+import gbfs
+import ass
 
 
 class Sokoban:

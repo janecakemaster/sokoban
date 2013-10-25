@@ -1,0 +1,2 @@
+def ass(problem):
+    return

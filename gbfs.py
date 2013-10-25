@@ -1,0 +1,2 @@
+def gbfs(problem):
+    return
