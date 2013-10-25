@@ -7,6 +7,8 @@ class Spot:
     def __eq__(self, other):
         if self.x == other.x and self.y == other.y:
             return True
+        else:
+            return False
 
     def __add__(self, other):
         x = self.x + other.x

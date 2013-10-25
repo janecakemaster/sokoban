@@ -1,15 +1,12 @@
 from board import Board
 import bfs
-import ucs
-import dfs
-import gbfs
-import ass
 
 
 class Sokoban:
 
     def new_board(self, filename):
-        b = Board()
+        e = []
+        b = Board(e)
         with open(filename, 'r') as f:
             read_data = f.read()
             lines = read_data.split('\n')
@@ -40,3 +37,6 @@ class Sokoban:
             else:
                 print "No player on board"
                 return None
+
+    def doSearches(self, board):
+        bfs.search(board)
