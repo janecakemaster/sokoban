@@ -14,5 +14,5 @@ if len(sys.argv) == 2:
     runSearch(sok, sys.argv[1])
 else:
     runSearch(sok, 'puzzles/easy1.txt')
-    runSearch(sok, 'puzzles/easy2.txt')
     runSearch(sok, 'puzzles/easy3.txt')
+    runSearch(sok, 'puzzles/mod1.txt')
