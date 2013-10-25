@@ -15,26 +15,18 @@ class Sokoban:
                 for char in line:
                     if char == '#':
                         b.add_wall(x, y)
-                        # print "Wall added"
                     elif char == '.':
                         b.add_goal(x, y)
-                        # print "Goal added"
                     elif char == '@':
                         b.set_player(x, y)
-                        # print "Player located"
                     elif char == '+':
                         b.set_player(x, y)
                         b.add_goal(x, y)
-                        # print "Player located"
-                        # print "goal added"
                     elif char == '$':
                         b.add_box(x, y)
-                        # print "box added"
                     elif char == '*':
                         b.add_box(x, y)
                         b.add_goal(x, y)
-                        # print "box added"
-                        # print "goal added"
                     x += 1
                 y += 1
                 x = 0
